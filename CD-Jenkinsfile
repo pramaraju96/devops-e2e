@@ -41,8 +41,7 @@ pipeline {
                 "description": "test description",
                 "cab_required": true,
                 "comments": "This update for work notes is from jenkins file",
-                "work_notes": "test work notes",
-                "chg_model":"007c4001c343101035ae3f52c1d3aeb2"
+                "work_notes": "test work notes"
             },
                 "setCloseCode": true
             }
