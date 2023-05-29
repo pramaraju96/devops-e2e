@@ -2,24 +2,24 @@
 <testng-results ignored="0" total="4" passed="2" failed="0" skipped="2">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-05-29T14:18:49 IST" name="Surefire suite" finished-at="2023-05-29T14:18:50 IST" duration-ms="245">
+  <suite started-at="2023-05-29T14:30:20 IST" name="Surefire suite" finished-at="2023-05-29T14:30:21 IST" duration-ms="584">
     <groups>
     </groups>
-    <test started-at="2023-05-29T14:18:49 IST" name="Surefire test" finished-at="2023-05-29T14:18:50 IST" duration-ms="245">
+    <test started-at="2023-05-29T14:30:20 IST" name="Surefire test" finished-at="2023-05-29T14:30:21 IST" duration-ms="584">
       <class name="com.test.FirstTest">
-        <test-method signature="falseTest()" started-at="2023-05-29T14:18:49 IST" name="falseTest" finished-at="2023-05-29T14:18:49 IST" duration-ms="0" status="SKIP">
+        <test-method signature="falseTest()" started-at="2023-05-29T14:30:21 IST" name="falseTest" finished-at="2023-05-29T14:30:21 IST" duration-ms="0" status="SKIP">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- falseTest -->
-        <test-method signature="emptyTest()" started-at="2023-05-29T14:18:49 IST" name="emptyTest" finished-at="2023-05-29T14:18:49 IST" duration-ms="42" status="PASS">
+        <test-method signature="emptyTest()" started-at="2023-05-29T14:30:21 IST" name="emptyTest" finished-at="2023-05-29T14:30:21 IST" duration-ms="83" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- emptyTest -->
-        <test-method signature="disabledTest()" started-at="2023-05-29T14:18:49 IST" name="disabledTest" finished-at="2023-05-29T14:18:49 IST" duration-ms="0" status="SKIP">
+        <test-method signature="disabledTest()" started-at="2023-05-29T14:30:21 IST" name="disabledTest" finished-at="2023-05-29T14:30:21 IST" duration-ms="0" status="SKIP">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- disabledTest -->
-        <test-method signature="trueTest()" started-at="2023-05-29T14:18:49 IST" name="trueTest" finished-at="2023-05-29T14:18:49 IST" duration-ms="65" status="PASS">
+        <test-method signature="trueTest()" started-at="2023-05-29T14:30:21 IST" name="trueTest" finished-at="2023-05-29T14:30:21 IST" duration-ms="128" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- trueTest -->
