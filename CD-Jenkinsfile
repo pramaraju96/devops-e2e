@@ -6,17 +6,24 @@ pipeline {
   stages {
        stage('Download from JFrog') {
            steps {
+
+           }
+           post{
+            always{
+              script{
                 def server = Artifactory.server 'ramadevopsjfrog'
                 def downSpec= """{
                    "files": [{
-                      "pattern": "default-docker-local/artifact-1.3.jar",
+                     "pattern": "default-docker-local/devops-e2e-1.39.0-SNAPSHOT.jar",
                      "target":"/var/jfrog_artifacts/"
                    }]
                 }"""
 
                 def buildInfo = server.download(downSpec) 
-                server.publishBuildInfo buildInfo 
-           }
+                server.publishBuildInfo buildInfo
+                }
+               }
+              } 
        }
 
       stage('Deploy') {
