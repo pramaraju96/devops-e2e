@@ -48,12 +48,13 @@ pipeline {
         steps {
             sleep(5);
             	echo "Uploading the artifacts to JFrog"
+		sh 'ls -ltr'
 		echo "${env.WORKSPACE}/target/devops-e2e-1.39.0-SNAPSHOT.jar"
             }
 	    post{
 	    	always{
 		    script{
-		    def server = Artifactory.server 'ramadevopsjfrog'
+		    def server = Artifactory.server 'ramadevops'
                     def uploadSpec = """{
                     "files": [{
                      "pattern": "${env.WORKSPACE}/target/devops-e2e-1.39.0-SNAPSHOT.jar",
