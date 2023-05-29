@@ -46,9 +46,8 @@ pipeline {
 
         stage('Upload to JFrog') {
         steps {
-            sleep(5);
             	echo "Uploading the artifacts to JFrog"
-		sh 'ls -ltr'
+		sh  'mvn package'
 		sh "ls -ltr target/*.jar"
             }
 	    post{
