@@ -37,7 +37,7 @@ pipeline {
        
        stage('Bundle') {
 		steps {
-                //sonarSummaries()
+                sonarSummaries()
                 sleep(5);
                 snDevOpsArtifact(artifactsPayload: """{"artifacts": [{"name": "${artifactname}", "version": "1.${env.BUILD_NUMBER}","semanticVersion": "1.${env.BUILD_NUMBER}.0","repositoryName": "${repoName}"}],"branchName":"main"}""")
                 snDevOpsPackage(name: "${packageName}", artifactsPayload: """{"artifacts":[{"name": "${artifactname}", "version": "1.${env.BUILD_NUMBER}","semanticVersion": "1.${env.BUILD_NUMBER}.0","repositoryName": "${repoName}"}], "branchName":"main"}""")
@@ -46,9 +46,9 @@ pipeline {
 
         stage('Upload to JFrog') {
         steps {
-            	echo "Uploading the artifacts to JFrog"
-		sh  'mvn package'
-		sh "ls -ltr target/*.jar"
+		sh 'mvn deploy'
+		sh "ls -ltr target/*"
+		echo "Uploading the artifacts to JFrog"
             }
 	    post{
 	    	always{
@@ -56,8 +56,8 @@ pipeline {
 		    def server = Artifactory.server 'ramadevops'
                     def uploadSpec = """{
                     "files": [{
-                     "pattern": "target/*.jar",
-                     "target": "devops-jfrog-repo/"
+                     "pattern": "${env.WORKSPACE}/target/devops-e2e-1.39.0-SNAPSHOT.jar",
+                     "target": "devops-jfrog-local-repo/"
                     }]
                     }"""
 
