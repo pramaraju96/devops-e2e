@@ -14,7 +14,7 @@ pipeline {
                 def server = Artifactory.server 'ramadevops'
                 def downSpec= """{
                    "files": [{
-                     "pattern": "devops-jfrog-local-repo/19/devops-e2e-1.39.0-SNAPSHOT.jar",
+                     "pattern": "devops-jfrog-local-repo/devops-e2e-1.39.0-SNAPSHOT.jar",
                      "target":"${env.WORKSPACE}/${env.BUILD_NUMBER}/"
                    }]
                 }"""
