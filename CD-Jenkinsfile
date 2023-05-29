@@ -1,0 +1,46 @@
+pipeline {
+  agent any
+  tools {
+       maven 'Maven'
+   }
+  stages {
+       stage('Download from JFrog') {
+           steps {
+                def server = Artifactory.server 'ramadevopsjfrog'
+                def downSpec= """{
+                   "files": [{
+                      "pattern": "default-docker-local/artifact-1.3.jar",
+                     "target":"/var/jfrog_artifacts/"
+                   }]
+                }"""
+
+                def buildInfo = server.download(downSpec) 
+                server.publishBuildInfo buildInfo 
+           }
+       }
+
+      stage('Deploy') {
+         steps {
+            echo 'Deploying the change....'
+            snDevOpsChange(changeRequestDetails:"""
+            {
+            "attributes":
+            {
+                "short_description": "Test description",
+                "priority": "1",
+                "start_date": "2021-02-05 08:00:00",
+                "end_date": "2022-04-05 08:00:00",
+                "justification": "test justification",
+                "description": "test description",
+                "cab_required": true,
+                "comments": "This update for work notes is from jenkins file",
+                "work_notes": "test work notes",
+                "chg_model":"007c4001c343101035ae3f52c1d3aeb2"
+            },
+                "setCloseCode": true
+            }
+            """)
+         }
+      }      
+ }
+}
