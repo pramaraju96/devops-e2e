@@ -63,6 +63,7 @@ pipeline {
 
                     def buildInfo = server.upload(uploadSpec) 
                     server.publishBuildInfo buildInfo
+		    sleep(5);
 		    }
 		  }
 		}  
