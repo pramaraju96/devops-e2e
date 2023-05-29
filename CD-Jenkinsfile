@@ -6,8 +6,8 @@ pipeline {
   stages {
        stage('Download from JFrog') {
            steps {
-              sh 'cd ${env.WORKSPACE}'
-              sh 'mkdir jfrogartifacts'
+              sh 'mkdir ${env.WORKSPACE}/jfrogartifacts'
+              sh "ls -ltr ${env.WORKSPACE}"
               echo "Download the JFrog artifacts"
            }
            post{
