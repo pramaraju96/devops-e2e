@@ -6,16 +6,18 @@ pipeline {
   stages {
        stage('Download from JFrog') {
            steps {
+              sh 'cd ${env.WORKSPACE}'
+              sh 'mkdir jfrogartifacts'
               echo "Download the JFrog artifacts"
            }
            post{
             always{
               script{
-                def server = Artifactory.server 'ramadevopsjfrog'
+                def server = Artifactory.server 'ramadevops'
                 def downSpec= """{
                    "files": [{
-                     "pattern": "libs-snapshot-local/devops-e2e-1.39.0-SNAPSHOT.jar",
-                     "target":"/var/jfrog_artifacts/"
+                     "pattern": "devops-jfrog-local-repo/devops-e2e-1.39.0-SNAPSHOT.jar",
+                     "target":"${env.WORKSPACE}/jfrogartifacts/"
                    }]
                 }"""
 
