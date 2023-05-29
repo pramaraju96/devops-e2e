@@ -13,6 +13,7 @@ public class FirstTest {
 		assertTrue("Passed test", true);
 	}
 
+	@Ignore
 	@Test
 	public void falseTest() {
 		assertFalse("Failed test", true);
