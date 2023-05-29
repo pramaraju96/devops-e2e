@@ -25,6 +25,15 @@
 			<version>3.9.1.2184</version>
 		</dependency>
 	</dependencies>
+
+	<distributionManagement>
+	    <snapshotRepository>
+	        <id>snapshots</id>
+	        <name>a0sitslqgz9jj-artifactory-primary-0-snapshots</name>
+	        <url>https://ramadevops.jfrog.io/artifactory/libs-snapshot</url>
+	    </snapshotRepository>
+	</distributionManagement>
+
 	<build>
 		<plugins>
 			<plugin>

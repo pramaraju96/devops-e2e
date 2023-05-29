@@ -1,0 +1,7 @@
+organization=pramaraju96
+projectKey=pramaraju96_devops-e2e
+serverUrl=https://sonarcloud.io
+serverVersion=8.0.0.41494
+dashboardUrl=https://sonarcloud.io/dashboard?id=pramaraju96_devops-e2e
+ceTaskId=AYhmsrlmLed4AO_hscHy
+ceTaskUrl=https://sonarcloud.io/api/ce/task?id=AYhmsrlmLed4AO_hscHy
