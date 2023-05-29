@@ -46,20 +46,24 @@ pipeline {
         stage('Upload to JFrog') {
         steps {
             sleep(5);
-                sonarSummaries()
-                
-                def server = Artifactory.server 'ramadevopsjfrog'
-                def uploadSpec = """{
-                   "files": [{
+            sonarSummaries()
+            }
+	    post{
+	    	always{
+		    script{
+		    def server = Artifactory.server 'ramadevopsjfrog'
+                    def uploadSpec = """{
+                    "files": [{
                      "pattern": "${env.WORKSPACE}/target/artifact-1.3.jar",
                       "target": "default-docker-virtual/"
-                   }]
-                }"""
+                    }]
+                    }"""
 
-             def buildInfo = server.upload(uploadSpec) 
-             server.publishBuildInfo buildInfo
-
-            }       
+                    def buildInfo = server.upload(uploadSpec) 
+                    server.publishBuildInfo buildInfo
+		    }
+		  }
+		}  
         }
              
  }
