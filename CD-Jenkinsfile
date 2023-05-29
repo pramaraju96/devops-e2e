@@ -7,6 +7,7 @@ pipeline {
        stage('Download from JFrog') {
            steps {
               echo "Download the JFrog artifacts"
+              echo "/var/jenkins_home/workspace/rama folder/CD Pipeline/${env.BUILD_NUMBER}/"
            }
            post{
             always{
