@@ -49,6 +49,7 @@ pipeline {
             sleep(5);
             	echo "Uploading the artifacts to JFrog"
 		sh 'ls -ltr'
+		sh "ls -ltr ${env.WORKSPACE}/target/devops-e2e-1.39.0-SNAPSHOT.jar"
 		echo "${env.WORKSPACE}/target/devops-e2e-1.39.0-SNAPSHOT.jar"
             }
 	    post{
