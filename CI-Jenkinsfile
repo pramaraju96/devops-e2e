@@ -56,7 +56,7 @@ pipeline {
                     def uploadSpec = """{
                     "files": [{
                      "pattern": "${env.WORKSPACE}/target/devops-e2e-1.39.0-SNAPSHOT.jar",
-                      "target": "libs-snapshot-local/"
+                     "target": "devops-jfrog-repo/"
                     }]
                     }"""
 
