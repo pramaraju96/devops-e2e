@@ -46,8 +46,8 @@ pipeline {
 
         stage('Upload to JFrog') {
         steps {
-		sh 'mvn deploy'
-		sh "ls -ltr target/*"
+		sh 'mvn package'
+		sh "ls -ltr target/"
 		echo "Uploading the artifacts to JFrog"
             }
 	    post{
@@ -56,7 +56,7 @@ pipeline {
 		    def server = Artifactory.server 'ramadevops'
                     def uploadSpec = """{
                     "files": [{
-                     "pattern": "${env.WORKSPACE}/target/devops-e2e-1.39.0-SNAPSHOT.jar",
+                     "pattern": "target/devops-e2e-1.39.0-SNAPSHOT.jar",
                      "target": "devops-jfrog-local-repo/"
                     }]
                     }"""
