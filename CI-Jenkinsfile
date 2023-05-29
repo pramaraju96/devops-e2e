@@ -37,7 +37,7 @@ pipeline {
        
        stage('Bundle') {
 		steps {
-                sonarSummaries()
+                //sonarSummaries()
                 sleep(5);
                 snDevOpsArtifact(artifactsPayload: """{"artifacts": [{"name": "${artifactname}", "version": "1.${env.BUILD_NUMBER}","semanticVersion": "1.${env.BUILD_NUMBER}.0","repositoryName": "${repoName}"}],"branchName":"main"}""")
                 snDevOpsPackage(name: "${packageName}", artifactsPayload: """{"artifacts":[{"name": "${artifactname}", "version": "1.${env.BUILD_NUMBER}","semanticVersion": "1.${env.BUILD_NUMBER}.0","repositoryName": "${repoName}"}], "branchName":"main"}""")
@@ -48,6 +48,7 @@ pipeline {
         steps {
             sleep(5);
             	echo "Uploading the artifacts to JFrog"
+		echo "${env.WORKSPACE}/target/devops-e2e-1.39.0-SNAPSHOT.jar"
             }
 	    post{
 	    	always{
