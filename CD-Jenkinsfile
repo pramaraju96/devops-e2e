@@ -6,7 +6,7 @@ pipeline {
   stages {
        stage('Download from JFrog') {
            steps {
-
+              echo "Download the JFrog artifacts"
            }
            post{
             always{
