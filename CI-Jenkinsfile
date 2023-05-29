@@ -56,7 +56,7 @@ pipeline {
 		    def server = Artifactory.server 'ramadevops'
                     def uploadSpec = """{
                     "files": [{
-                     "pattern": "target/devops-e2e-1.39.${env.BUILD_NUMBER}-SNAPSHOT.jar",
+                     "pattern": "target/devops-e2e-1.39.0-SNAPSHOT.jar",
                      "target": "devops-jfrog-local-repo/"
                     }]
                     }"""
