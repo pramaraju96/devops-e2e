@@ -30,7 +30,7 @@ pipeline {
 
       stage('Deploy') {
          steps {
-            echo 'Deploying the change....'
+            
             snDevOpsChange(changeRequestDetails:"""
             {
             "attributes":
@@ -49,6 +49,7 @@ pipeline {
             }
             """)
          }
+         echo 'Deploying the package....'
       }      
  }
 }
