@@ -48,7 +48,7 @@ pipeline {
                 "setCloseCode": true
             }
             """)
-            echo 'Deploying the package.....'
+            echo 'Deploying the package....'
          }
          
       }      
